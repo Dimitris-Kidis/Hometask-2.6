@@ -32,8 +32,8 @@ namespace App
 
             InsertNewRowInPersonTable(new Person(6, "John", 35));
             UpdateRowInPersonTableById(new Person(99, "99", 99), 1);
-            DeleteRowInPersonTableById(6);
-            SelectInPersonTableById(3);
+            DeleteRowInPersonTableById(2);
+            SelectInPersonTableById(99);
 
         }
 
@@ -107,13 +107,6 @@ namespace App
         public static SqlDataAdapter GetPersonAdapter()
         {
             SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Person;", connectionString);
-
-            // select
-            //adapter.SelectCommand = new SqlCommand("SELECT Id, Name, Age FROM Person WHERE Id = @Id");
-            //SqlParameter selParam = adapter.SelectCommand.Parameters.Add("@Id", SqlDbType.Int);
-            //    selParam.Value = 1;
-            //selParam.SourceColumn = "Id";
-            //selParam.SourceVersion = DataRowVersion.Original;
 
             // insert
             adapter.InsertCommand = new SqlCommand("INSERT INTO Person(Id, Name, Age) VALUES (@Id, @Name, @Age)");
